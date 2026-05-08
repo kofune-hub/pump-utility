@@ -26,12 +26,12 @@ export default function PrivacyPolicy() {
 
         <Section title="1. 事業者情報">
           <p>
-            株式会社PUMP（以下「当社」）は、お客様の個人情報の保護を重要な責務と認識し、
+            株式会社pump（以下「当社」）は、お客様の個人情報の保護を重要な責務と認識し、
             個人情報の保護に関する法律（個人情報保護法）および関連法令を遵守します。
           </p>
           <p>
-            <strong>事業者名：</strong>株式会社PUMP<br />
-            <strong>所在地：</strong>東京都<br />
+            <strong>事業者名：</strong>株式会社pump<br />
+            <strong>所在地：</strong>東京都渋谷区幡ヶ谷1丁目1番2号 第5定石ビル7F<br />
             <strong>ウェブサイト：</strong><a href="https://www.pump.tokyo/" target="_blank" rel="noreferrer">https://www.pump.tokyo/</a>
           </p>
         </Section>
@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
         <Section title="2. 収集する個人情報">
           <p>当社は以下の場合に個人情報を取得することがあります。</p>
           <ul>
-            <li>お問い合わせフォームからのご連絡（氏名、メールアドレス、会社名、お問い合わせ内容）</li>
+            <li>お問い合わせフォーム（<a href="https://www.pump.tokyo/other-contact/" target="_blank" rel="noreferrer">https://www.pump.tokyo/other-contact/</a>）からのご連絡（氏名、メールアドレス、会社名、お問い合わせ内容）</li>
             <li>お見積もり・ご依頼時のやり取り（上記に加え、住所・電話番号・案件内容等）</li>
             <li>採用応募時（氏名、連絡先、経歴情報等）</li>
             <li>ウェブサイトへのアクセス時に収集されるアクセスログ・Cookie情報</li>
@@ -71,9 +71,10 @@ export default function PrivacyPolicy() {
 
         <Section title="5. Cookie・アクセス解析">
           <p>
-            当社ウェブサイトでは、サービス改善を目的としてGoogle Analytics等のアクセス解析ツールを使用する場合があります。
-            これらのツールはCookieを使用してアクセス情報を収集しますが、個人を特定する情報は含まれません。
-            ブラウザの設定によりCookieを無効にすることができますが、一部機能が利用できなくなる場合があります。
+            当社ウェブサイトでは、サービス改善を目的としてGoogle Analytics（提供：Google LLC）を使用しています。
+            Google AnalyticsはCookieを使用してアクセス情報を収集しますが、個人を特定する情報は含まれません。
+            収集されたデータはGoogleのプライバシーポリシーに基づいて管理されます。
+            ブラウザの設定またはGoogle アナリティクス オプトアウト アドオンによりデータ収集を無効にできます。
           </p>
         </Section>
 
@@ -104,7 +105,7 @@ export default function PrivacyPolicy() {
             個人情報の取扱いに関するお問い合わせは、下記の窓口までご連絡ください。
           </p>
           <p>
-            <strong>株式会社PUMP　個人情報担当</strong><br />
+            <strong>株式会社pump　個人情報担当</strong><br />
             Email：<a href="mailto:info@pump.tokyo">info@pump.tokyo</a><br />
             受付時間：平日 10:00〜18:00（祝日・年末年始を除く）
           </p>
@@ -119,7 +120,7 @@ export default function PrivacyPolicy() {
         </Section>
 
         <div style={{ marginTop: 48, paddingTop: 20, borderTop: "1px solid #181818", fontSize: 11, color: "#2a2a2a", textAlign: "right", fontFamily: "'DM Mono', monospace" }}>
-          株式会社PUMP
+          株式会社pump
         </div>
       </div>
     </div>
