@@ -1,0 +1,112 @@
+<!-- WordPress 固定ページ > カスタムHTMLブロックに貼り付け -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap');
+  .pp-wrap * { box-sizing: border-box; }
+  .pp-wrap { font-family: 'DM Sans', sans-serif; min-height: 100vh; background: #0a0a0a; color: #e8e4dc; margin: 0 -20px; }
+  .pp-header { border-bottom: 1px solid #141414; padding: 13px 18px; background: #0d0d0d; }
+  .pp-header span { font-size: 10px; color: #3a3a3a; letter-spacing: 0.15em; font-family: 'DM Mono', monospace; }
+  .pp-inner { max-width: 680px; margin: 0 auto; padding: 40px 20px 80px; }
+  .pp-wrap h1 { font-size: 22px; font-weight: 600; color: #e8e4dc; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .pp-date { font-size: 11px; color: #333; margin-bottom: 40px; font-family: 'DM Mono', monospace; }
+  .pp-section { margin-bottom: 32px; }
+  .pp-section h2 { font-size: 13px; font-weight: 600; color: #888; letter-spacing: 0.04em; margin-bottom: 12px; border-bottom: 1px solid #181818; padding-bottom: 8px; }
+  .pp-section p, .pp-section li { font-size: 14px; color: #666; line-height: 1.9; margin: 0 0 10px; }
+  .pp-section ul { padding-left: 20px; margin: 8px 0; }
+  .pp-section li { margin-bottom: 6px; }
+  .pp-section strong { color: #888; }
+  .pp-section a { color: #aaa; text-decoration: underline; }
+  .pp-section a:hover { color: #e8e4dc; }
+  .pp-footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #181818; font-size: 11px; color: #2a2a2a; text-align: right; font-family: 'DM Mono', monospace; }
+</style>
+
+<div class="pp-wrap">
+  <div class="pp-header">
+    <span>PUMP — プライバシーポリシー</span>
+  </div>
+
+  <div class="pp-inner">
+    <h1>プライバシーポリシー</h1>
+    <p class="pp-date">最終更新日：2026年5月8日</p>
+
+    <div class="pp-section">
+      <h2>1. 事業者情報</h2>
+      <p>株式会社pump（以下「当社」）は、お客様の個人情報の保護を重要な責務と認識し、個人情報の保護に関する法律（個人情報保護法）および関連法令を遵守します。</p>
+      <p>
+        <strong>事業者名：</strong>株式会社pump<br>
+        <strong>所在地：</strong>東京都渋谷区幡ヶ谷1丁目1番2号 第5定石ビル7F<br>
+        <strong>ウェブサイト：</strong><a href="https://www.pump.tokyo/" target="_blank" rel="noreferrer">https://www.pump.tokyo/</a>
+      </p>
+    </div>
+
+    <div class="pp-section">
+      <h2>2. 収集する個人情報</h2>
+      <p>当社は以下の場合に個人情報を取得することがあります。</p>
+      <ul>
+        <li>お問い合わせフォーム（<a href="https://www.pump.tokyo/other-contact/" target="_blank" rel="noreferrer">https://www.pump.tokyo/other-contact/</a>）からのご連絡（氏名、メールアドレス、会社名、お問い合わせ内容）</li>
+        <li>お見積もり・ご依頼時のやり取り（上記に加え、住所・電話番号・案件内容等）</li>
+        <li>採用応募時（氏名、連絡先、経歴情報等）</li>
+        <li>ウェブサイトへのアクセス時に収集されるアクセスログ・Cookie情報</li>
+      </ul>
+    </div>
+
+    <div class="pp-section">
+      <h2>3. 個人情報の利用目的</h2>
+      <p>取得した個人情報は以下の目的に限り利用します。</p>
+      <ul>
+        <li>お問い合わせへの回答および業務上の連絡</li>
+        <li>ご依頼いただいた制作・撮影・編集業務の遂行</li>
+        <li>採用選考および採用後の連絡</li>
+        <li>サービス改善・統計分析（個人を特定しない形式）</li>
+        <li>法令に基づく対応</li>
+      </ul>
+    </div>
+
+    <div class="pp-section">
+      <h2>4. 第三者への提供</h2>
+      <p>当社は、以下のいずれかに該当する場合を除き、お客様の個人情報を第三者に提供しません。</p>
+      <ul>
+        <li>お客様本人の同意がある場合</li>
+        <li>法令に基づく場合（裁判所・警察等からの適法な要請等）</li>
+        <li>人の生命・身体・財産の保護に必要な場合</li>
+        <li>業務委託先に対して、利用目的の達成に必要な範囲で提供する場合（秘密保持契約を締結した上で委託します）</li>
+      </ul>
+    </div>
+
+    <div class="pp-section">
+      <h2>5. Cookie・アクセス解析</h2>
+      <p>当社ウェブサイトでは、サービス改善を目的としてGoogle Analytics（提供：Google LLC）を使用しています。Google AnalyticsはCookieを使用してアクセス情報を収集しますが、個人を特定する情報は含まれません。収集されたデータはGoogleのプライバシーポリシーに基づいて管理されます。ブラウザの設定またはGoogle アナリティクス オプトアウト アドオンによりデータ収集を無効にできます。</p>
+    </div>
+
+    <div class="pp-section">
+      <h2>6. 個人情報の管理・安全対策</h2>
+      <p>当社は取得した個人情報への不正アクセス・紛失・漏洩・改ざん等を防止するため、適切な技術的・組織的安全管理措置を講じます。業務委託先に個人情報を提供する場合は、適切な管理を求め、監督します。</p>
+    </div>
+
+    <div class="pp-section">
+      <h2>7. 個人情報の保存期間</h2>
+      <p>個人情報は利用目的の達成に必要な期間のみ保存し、不要となった情報は適切な方法で廃棄します。なお、法令により保存が義務付けられている場合はその期間に従います。</p>
+    </div>
+
+    <div class="pp-section">
+      <h2>8. 開示・訂正・削除のご請求</h2>
+      <p>ご本人から保有する個人情報の開示・訂正・利用停止・削除をご請求いただける場合があります。以下の窓口までご連絡ください。ご本人確認を行った上で、法令の定めに従い合理的な期間内に対応します。</p>
+    </div>
+
+    <div class="pp-section">
+      <h2>9. お問い合わせ窓口</h2>
+      <p>個人情報の取扱いに関するお問い合わせは、下記の窓口までご連絡ください。</p>
+      <p>
+        <strong>株式会社pump　個人情報担当</strong><br>
+        Email：<a href="mailto:info@pump.tokyo">info@pump.tokyo</a><br>
+        受付時間：平日 10:00〜18:00（祝日・年末年始を除く）
+      </p>
+    </div>
+
+    <div class="pp-section">
+      <h2>10. ポリシーの変更</h2>
+      <p>当社は本プライバシーポリシーを予告なく改定することがあります。重要な変更がある場合はウェブサイト上でお知らせします。最新のポリシーは常に本ページに掲載します。</p>
+    </div>
+
+    <div class="pp-footer">株式会社pump</div>
+  </div>
+</div>
