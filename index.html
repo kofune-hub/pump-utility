@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="pump Inc. — 東京の映像制作スタジオ。CM・MV・WEB動画・短編映画の企画から撮影・編集・納品まで。">
+  <title>pump Inc. | Creative Production Studio, Tokyo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset & Base ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #080808;
+      --surface:  #0f0f0f;
+      --surface2: #141414;
+      --text:     #f0ece6;
+      --muted:    #5a5a5a;
+      --border:   #1c1c1c;
+      --accent:   #e8dfd2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Grain overlay ────────────────────────────────── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+    }
+
+    /* ── Nav ──────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 52px;
+      transition: background .4s, backdrop-filter .4s, padding .4s;
+    }
+
+    .nav.scrolled {
+      padding: 18px 52px;
+      background: rgba(8,8,8,.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+    }
+
+    .nav-links a {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: .18em;
+      color: var(--muted);
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-contact {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--text) !important;
+      transition: border-color .2s, background .2s !important;
+    }
+
+    .nav-contact:hover {
+      border-color: var(--muted) !important;
+      background: var(--surface) !important;
+    }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 52px 88px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 50%, rgba(30,25,20,.5) 0%, transparent 100%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(15,18,28,.6) 0%, transparent 100%);
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: .22em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+      font-size: clamp(44px, 6.5vw, 96px);
+      font-weight: 300;
+      line-height: 1.3;
+      letter-spacing: .04em;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-sub {
+      margin-top: 40px;
+      font-size: 11px;
+      letter-spacing: .22em;
+      color: var(--muted);
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      right: 52px;
+      bottom: 88px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-size: 9px;
+      letter-spacing: .22em;
+      color: var(--muted);
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 48px;
+      background: var(--border);
+    }
+
+    .hero-index {
+      position: absolute;
+      left: 52px;
+      bottom: 88px;
+      font-size: 10px;
+      color: var(--border);
+      letter-spacing: .1em;
+    }
+
+    /* ── Section common ───────────────────────────────── */
+    .sec-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .sec-label {
+      font-size: 9px;
+      letter-spacing: .28em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .sec-more {
+      font-size: 10px;
+      letter-spacing: .14em;
+      color: var(--muted);
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    .sec-more:hover { color: var(--text); }
+
+    /* ── Works ────────────────────────────────────────── */
+    .works {
+      padding: 140px 0 180px;
+    }
+
+    .works .sec-header {
+      padding: 0 52px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 3px;
+    }
+
+    .work {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--surface);
+      display: block;
+    }
+
+    /* Asymmetric layout */
+    .work:nth-child(1) { grid-column: span 8; aspect-ratio: 16/9; }
+    .work:nth-child(2) { grid-column: span 4; }
+    .work:nth-child(3) { grid-column: span 4; aspect-ratio: 1; }
+    .work:nth-child(4) { grid-column: span 4; aspect-ratio: 1; }
+    .work:nth-child(5) { grid-column: span 4; aspect-ratio: 1; }
+    .work:nth-child(6) { grid-column: span 7; aspect-ratio: 16/8; }
+    .work:nth-child(7) { grid-column: span 5; aspect-ratio: 16/8; }
+
+    .work-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 1s cubic-bezier(.16,1,.3,1);
+    }
+
+    .work:hover .work-bg { transform: scale(1.05); }
+
+    .work-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.1) 55%, transparent 100%);
+      z-index: 1;
+      transition: opacity .3s;
+    }
+
+    .work:hover .work-overlay { opacity: .7; }
+
+    .work-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 32px;
+      z-index: 2;
+      transform: translateY(4px);
+      transition: transform .4s cubic-bezier(.16,1,.3,1);
+    }
+
+    .work:hover .work-info { transform: none; }
+
+    .work-cat {
+      font-size: 9px;
+      letter-spacing: .22em;
+      color: rgba(255,255,255,.4);
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .work-title {
+      font-size: clamp(13px, 1.4vw, 18px);
+      font-weight: 400;
+      line-height: 1.4;
+      color: rgba(255,255,255,.92);
+    }
+
+    /* Work backgrounds — dark cinematic gradients */
+    .work:nth-child(1) .work-bg { background: linear-gradient(135deg, #0d1422 0%, #1c2a4a 50%, #0d1020 100%); }
+    .work:nth-child(2) .work-bg { background: linear-gradient(160deg, #1a0e08 0%, #3a1e0e 60%, #1a0a06 100%); }
+    .work:nth-child(3) .work-bg { background: linear-gradient(135deg, #080e14 0%, #101c26 100%); }
+    .work:nth-child(4) .work-bg { background: linear-gradient(135deg, #0e0812 0%, #201030 100%); }
+    .work:nth-child(5) .work-bg { background: linear-gradient(135deg, #0a1008 0%, #182016 100%); }
+    .work:nth-child(6) .work-bg { background: linear-gradient(160deg, #12100a 0%, #1e1c10 100%); }
+    .work:nth-child(7) .work-bg { background: linear-gradient(160deg, #080e12 0%, #101a1e 100%); }
+
+    /* ── About ────────────────────────────────────────── */
+    .about {
+      padding: 160px 52px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .about-statement {
+      font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+      font-size: clamp(22px, 2.8vw, 38px);
+      font-weight: 300;
+      line-height: 1.9;
+      letter-spacing: .04em;
+    }
+
+    .about-body {
+      margin-top: 36px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.9;
+      max-width: 380px;
+    }
+
+    .about-table {
+      padding-top: 4px;
+    }
+
+    .about-row {
+      display: flex;
+      gap: 28px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .about-key {
+      width: 72px;
+      flex-shrink: 0;
+      font-size: 10px;
+      letter-spacing: .12em;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+
+    .about-val {
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Service ──────────────────────────────────────── */
+    .service {
+      padding: 0 52px 160px;
+      border-top: 1px solid var(--border);
+    }
+
+    .service .sec-header {
+      padding: 80px 0 40px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .service-item {
+      padding: 44px 40px;
+      background: var(--surface);
+      transition: background .25s;
+    }
+
+    .service-item:hover { background: var(--surface2); }
+
+    .service-num {
+      font-size: 9px;
+      letter-spacing: .2em;
+      color: var(--border);
+      margin-bottom: 24px;
+    }
+
+    .service-name {
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: .1em;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .service-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* ── Story strip ──────────────────────────────────── */
+    .story-strip {
+      margin: 0 52px;
+      padding: 60px 56px;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      border-radius: 2px;
+    }
+
+    .story-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .story-text strong {
+      display: block;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .story-link {
+      flex-shrink: 0;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text);
+      padding: 12px 28px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      transition: border-color .2s, background .2s;
+      white-space: nowrap;
+    }
+
+    .story-link:hover {
+      border-color: var(--muted);
+      background: var(--surface2);
+    }
+
+    /* ── Contact ──────────────────────────────────────── */
+    .contact {
+      padding: 180px 52px 160px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .contact-eyebrow {
+      font-size: 9px;
+      letter-spacing: .28em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    .contact-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(52px, 9vw, 128px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: var(--surface2);
+      line-height: 1;
+      margin-bottom: 52px;
+      transition: color .4s;
+    }
+
+    .contact:hover .contact-title { color: var(--surface2); }
+
+    .contact-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 44px;
+    }
+
+    .contact-email {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: .06em;
+      color: var(--text);
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--border);
+      transition: border-color .25s;
+    }
+
+    .contact-email:hover { border-color: var(--text); }
+
+    .contact-address {
+      margin-top: 56px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 2;
+      letter-spacing: .04em;
+    }
+
+    /* ── Footer ───────────────────────────────────────── */
+    footer {
+      padding: 36px 52px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .08em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 36px;
+    }
+
+    .footer-links a {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    /* ── Reveal animation ─────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .9s ease, transform .9s ease;
+    }
+
+    .reveal.up { opacity: 1; transform: none; }
+
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+
+    /* ── Mobile ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav { padding: 20px 24px; }
+      .nav.scrolled { padding: 14px 24px; }
+      .nav-links { gap: 24px; }
+      .nav-contact { display: none; }
+
+      .hero { padding: 0 24px 72px; }
+      .hero-scroll, .hero-index { display: none; }
+      .works .sec-header { padding: 0 24px; }
+
+      .work:nth-child(1) { grid-column: span 12; }
+      .work:nth-child(2) { grid-column: span 12; aspect-ratio: 16/9; }
+      .work:nth-child(3),
+      .work:nth-child(4),
+      .work:nth-child(5) { grid-column: span 6; }
+      .work:nth-child(6),
+      .work:nth-child(7) { grid-column: span 12; }
+
+      .about {
+        grid-template-columns: 1fr;
+        padding: 80px 24px;
+        gap: 52px;
+      }
+
+      .service { padding: 0 24px 100px; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+
+      .story-strip {
+        margin: 0 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 36px;
+      }
+
+      .contact { padding: 100px 24px 80px; }
+
+      footer {
+        padding: 28px 24px;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .footer-links { gap: 24px; flex-wrap: wrap; justify-content: center; }
+    }
+
+    @media (max-width: 540px) {
+      .nav-links a:not(.nav-contact) { display: none; }
+      .nav-links { gap: 0; }
+      .service-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo">pump</a>
+    <div class="nav-links">
+      <a href="#works">Works</a>
+      <a href="#about">About</a>
+      <a href="https://www.pump.tokyo/member/">Member</a>
+      <a href="https://www.pump.tokyo/story/">Story</a>
+      <a href="https://www.pump.tokyo/recruit/">Recruit</a>
+      <a href="#contact" class="nav-contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <p class="hero-eyebrow reveal">Creative Production Studio &mdash; Tokyo, est. 2018</p>
+    <h1 class="hero-title reveal reveal-delay-1">
+      想いを汲み上げて、<br>世の中へ届ける。
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">CM &middot; MV &middot; WEB MOVIE &middot; SHORT FILM</p>
+    <span class="hero-scroll">Scroll</span>
+    <span class="hero-index">pump.tokyo</span>
+  </section>
+
+  <!-- ── WORKS ── -->
+  <section class="works" id="works">
+    <div class="sec-header reveal">
+      <span class="sec-label">Works</span>
+      <a href="https://www.pump.tokyo/works/" class="sec-more">All Works &rarr;</a>
+    </div>
+    <div class="works-grid">
+
+      <a href="https://www.pump.tokyo/works/goodbye-watashi/" class="work reveal">
+        <div class="work-bg"></div>
+        <div class="work-overlay"></div>
+        <div class="work-info">
+          <p class="work-cat">MV</p>
+          <p class="work-title">櫻坂46 個人PV<br>谷口愛季『私にバイバイ』</p>
+        </div>
+      </a>
+
+      <a href="https://www.pump.tokyo/works/siida/" class="work reveal reveal-delay-1">
+        <div class="work-bg"></div>
+        <div class="work-overlay"></div>
+        <div class="work-info">
+          <p class="work-cat">CM</p>
+          <p class="work-title">「SIIDA&reg;」<br>空想だし料理店 篇</p>
+        </div>
+      </a>
+
+      <a href="https://www.pump.tokyo/works/" class="work reveal">
+        <div class="work-bg"></div>
+        <div class="work-overlay"></div>
+        <div class="work-info">
+          <p class="work-cat">WEB CM</p>
+          <p class="work-title">Web Commercial</p>
+        </div>
+      </a>
+
+      <a href="https://www.pump.tokyo/works/" class="work reveal reveal-delay-1">
+        <div class="work-bg"></div>
+        <div class="work-overlay"></div>
+        <div class="work-info">
+          <p class="work-cat">MV</p>
+          <p class="work-title">Music Video</p>
+        </div>
+      </a>
+
+      <a href="https://www.pump.tokyo/works/" class="work reveal reveal-delay-2">
+        <div class="work-bg"></div>
+        <div class="work-overlay"></div>
+        <div class="work-info">
+          <p class="work-cat">SHORT FILM</p>
+          <p class="work-title">Short Film</p>
+        </div>
+      </a>
+
+      <a href="https://www.pump.tokyo/works/" class="work reveal">
+        <div class="work-bg"></div>
+        <div class="work-overlay"></div>
+        <div class="work-info">
+          <p class="work-cat">TV CM</p>
+          <p class="work-title">Television Commercial</p>
+        </div>
+      </a>
+
+      <a href="https://www.pump.tokyo/works/" class="work reveal reveal-delay-1">
+        <div class="work-bg"></div>
+        <div class="work-overlay"></div>
+        <div class="work-info">
+          <p class="work-cat">WEB MOVIE</p>
+          <p class="work-title">Web Movie</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="about" id="about">
+    <div>
+      <p class="sec-label" style="margin-bottom: 36px;">About</p>
+      <p class="about-statement reveal">
+        伝えたいことを汲み上げ、<br>
+        世の中へ届ける。<br>
+        人と人とをつなぐ、<br>
+        ポンプであること。
+      </p>
+      <p class="about-body reveal reveal-delay-1">
+        2018年設立。テレビ番組制作とCM制作の現場から生まれたpumpは、クライアントの想いに真摯に向き合い、CM・MV・WEB動画・短編映画など多岐にわたるジャンルで、企画から撮影・編集・納品まで一貫して手がけています。
+      </p>
+    </div>
+    <div class="about-table reveal">
+      <div class="about-row">
+        <span class="about-key">社名</span>
+        <span class="about-val">株式会社pump</span>
+      </div>
+      <div class="about-row">
+        <span class="about-key">設立</span>
+        <span class="about-val">2018年</span>
+      </div>
+      <div class="about-row">
+        <span class="about-key">所在地</span>
+        <span class="about-val">
+          〒151-0072<br>
+          東京都渋谷区幡ヶ谷1-1-2<br>
+          第5定石ビル 7F
+        </span>
+      </div>
+      <div class="about-row">
+        <span class="about-key">TEL</span>
+        <span class="about-val">03-6555-4170</span>
+      </div>
+      <div class="about-row">
+        <span class="about-key">事業内容</span>
+        <span class="about-val">
+          映像の企画・制作・撮影・編集<br>
+          広告・プロモーション制作<br>
+          各種メディアの企画・制作
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICE ── -->
+  <section class="service" id="service">
+    <div class="sec-header">
+      <span class="sec-label reveal">Service</span>
+    </div>
+    <div class="service-grid">
+      <div class="service-item reveal">
+        <p class="service-num">01</p>
+        <p class="service-name">CM</p>
+        <p class="service-desc">テレビCM・WEB CMの企画から制作まで。ブランドの想いを映像にのせて届けます。</p>
+      </div>
+      <div class="service-item reveal reveal-delay-1">
+        <p class="service-num">02</p>
+        <p class="service-name">MUSIC VIDEO</p>
+        <p class="service-desc">アーティストのビジョンを映像で表現。感情を揺さぶるMVを、企画段階から制作。</p>
+      </div>
+      <div class="service-item reveal reveal-delay-2">
+        <p class="service-num">03</p>
+        <p class="service-name">WEB MOVIE</p>
+        <p class="service-desc">SNS・WEBサイト向けの動画コンテンツ制作。伝わる映像、拡散される映像を。</p>
+      </div>
+      <div class="service-item reveal">
+        <p class="service-num">04</p>
+        <p class="service-name">SHORT FILM</p>
+        <p class="service-desc">短編映画・ドキュメンタリー。物語で世界観を深く伝える映像制作。</p>
+      </div>
+      <div class="service-item reveal reveal-delay-1">
+        <p class="service-num">05</p>
+        <p class="service-name">PLANNING</p>
+        <p class="service-desc">企画・演出から入るプロデュース。アイデアの段階からご相談ください。</p>
+      </div>
+      <div class="service-item reveal reveal-delay-2">
+        <p class="service-num">06</p>
+        <p class="service-name">DIRECTION</p>
+        <p class="service-desc">撮影・編集・MA・カラーグレーディングまで、一貫した品質管理でデリバリー。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STORY STRIP ── -->
+  <div class="story-strip reveal" style="margin-top: 0; margin-bottom: 80px;">
+    <div class="story-text">
+      <strong>pumpのストーリー</strong>
+      会社のこれまでとこれから。メンバーたちの言葉で綴る、pump Inc.のドキュメント。
+    </div>
+    <a href="https://www.pump.tokyo/story/" class="story-link">Read Stories &rarr;</a>
+  </div>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact" id="contact">
+    <p class="contact-eyebrow reveal">Contact</p>
+    <h2 class="contact-title reveal">LET'S MAKE<br>SOMETHING.</h2>
+    <p class="contact-desc reveal">
+      映像制作のご相談、お見積もり、<br>
+      採用に関するお問い合わせはこちらから。
+    </p>
+    <a href="mailto:info@pump.tokyo" class="contact-email reveal">info@pump.tokyo</a>
+    <p class="contact-address reveal">
+      〒151-0072 東京都渋谷区幡ヶ谷1-1-2 第5定石ビル7F<br>
+      Tel: 03-6555-4170
+    </p>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span class="footer-left">&copy; 2018&ndash;2025 pump Inc.</span>
+    <nav class="footer-links">
+      <a href="https://www.pump.tokyo/works/">Works</a>
+      <a href="https://www.pump.tokyo/member/">Member</a>
+      <a href="https://www.pump.tokyo/story/">Story</a>
+      <a href="https://www.pump.tokyo/recruit/">Recruit</a>
+      <a href="https://www.instagram.com/pumpinc_tokyo/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Nav on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('up');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+
+    reveals.forEach(el => io.observe(el));
+
+    // Hero reveal immediately
+    document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('up'), 200 + i * 140);
+    });
+  </script>
+</body>
+</html>
